@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/tailwind.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/icofont/icofont.min.css">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.2.45/css/materialdesignicons.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body x-data="{ showSearch: false, showSidebar: false }">
+<nav class="bg-white sticky top-0 z-20">
+  <div class="container mx-auto px-6 lg:px-0 flex">
+    <div :class="{ 'hidden lg:flex' : showSearch}" class="lg:w-1/6 font-semibold text-2xl h-16 flex items-center border-b lg:border-b-0">
+      <a href="#">
+        snaplogic
+      </a>
+    </div>
+    <div class="w-full lg:w-5/6 xl:w-4/6 h-16 border-b flex items-center justify-end lg:justify-start">
+      <i class="text-gray-600 px-3 lg:hidden" :class="showSearch ? 'icofont-arrow-left text-xl' : 'icofont-search text-lg'" @click="showSearch = !showSearch"></i>
+      <i class="text-gray-600 px-3 icofont-search text-lg hidden lg:block"></i>
+      <input type="text" placeholder="Search for Template" class="focus:outline-none flex-1" :class="showSearch ? 'block' : 'hidden lg:block'"/>
+      <i class="icofont-ui-cart text-3xl cursor-pointer text-gray-600"></i>
+    </div>
+  </div>
+</nav>
+<div class="container mx-auto flex">
+  <div class="lg:w-1/6 fixed top-0 left-0 bottom-0 lg:relative z-20 lg:z-0" :class="{ 'hidden lg:block': !showSidebar }">
+    <div @click="showSidebar = false" class="bg-black fixed top-0 left-0 right-0 bottom-0 bg-opacity-50 lg:hidden"></div>
+    <div class="sticky lg:top-16 overflow-y-auto px-6 lg:px-0 bg-white lg:bg-transparent h-full lg:h-auto w-64 lg:w-auto">
+      <ul class="pt-8 text-gray-500 text-sm">
+        <li class="text-sm uppercase mb-2 text-black">
+          Framework
+        </li>
+        <li class="flex items-center my-1">
+          <input id="react" type="checkbox" class="mr-2"/>
+          <label for="react">
+            React
+          </label>
+        </li>
+        <li class="flex items-center my-1">
+          <input id="vue" type="checkbox" class="mr-2"/>
+          <label for="vue">
+            Vue
+          </label>
+        </li>
+        <li class="flex items-center my-1">
+          <input id="rn" type="checkbox" class="mr-2"/>
+          <label for="rn">
+            React Native
+          </label>
+        </li>
+      </ul>
+      <ul class="pt-8 text-gray-500 text-sm">
+        <li class="text-sm uppercase mb-2 text-black">
+          Category
+        </li>
+        <li class="flex items-center my-1">
+          <input id="bus" type="checkbox" class="mr-2"/>
+          <label for="bus">
+            Business
+          </label>
+        </li>
+        <li class="flex items-center my-1">
+          <input id="ecom" type="checkbox" class="mr-2"/>
+          <label for="ecom">
+            Ecommerce
+          </label>
+        </li>
+        <li class="flex items-center my-1">
+          <input id="list" type="checkbox" class="mr-2"/>
+          <label for="list">
+            Listings
+          </label>
+        </li>
+        <li class="flex items-center my-1">
+          <input id="social" type="checkbox" class="mr-2"/>
+          <label for="social">
+            Social
+          </label>
+        </li>
+      </ul>
+      <ul class="pt-8 text-gray-500 text-sm">
+        <li class="text-sm uppercase mb-2 text-black">
+          Pricing
+        </li>
+        <li class="flex items-center my-1">
+          <input id="prem" type="checkbox" class="mr-2"/>
+          <label for="prem">
+            Premium
+          </label>
+        </li>
+        <li class="flex items-center my-1">
+          <input id="deal" type="checkbox" class="mr-2"/>
+          <label for="deal">
+            Deals
+          </label>
+        </li>
+        <li class="flex items-center my-1">
+          <input id="free" type="checkbox" class="mr-2"/>
+          <label for="free">
+            Free
+          </label>
+        </li>
+      </ul>
+      <ul class="pt-8 text-gray-500 text-sm">
+        <li class="text-sm uppercase mb-2 text-black">
+          Backend
+        </li>
+        <li class="flex items-center my-1">
+          <input id="laravel" type="checkbox" class="mr-2"/>
+          <label for="laravel">
+            Laravel
+          </label>
+        </li>
+        <li class="flex items-center my-1">
+          <input id="node" type="checkbox" class="mr-2"/>
+          <label for="node">
+            Node
+          </label>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="lg:w-5/6 xl:w-4/6 px-6 lg:px-0">
+    <h1 class="font-bold text-5xl lg:leading-normal mt-5 mb-5 lg:mb-0">
+      Premium App Templates
+    </h1>
+    <h2 class="text-xl lg:text-2xl text-gray-500 lg:w-5/6">
+      Professional ready-to-use <span class="text-green-900">templates</span>, <span class="text-green-900">source codes</span> and <span class="text-green-900">starter kits</span> for developers and startups.
+    </h2>
+
+    <select class="mt-14 focus:outline-none bg-white" name="sort" id="sort">
+      <option value="ltoh">Sort by Price: Low to high</option>
+    </select>
+
+    <ul class="flex flex-wrap my-5 -m-5">
+      <template x-for="i in 8">
+        <li class="lg:w-1/2">
+          <a href="#" class="block p-5 focus:ring-4 ring-green-300 hover:bg-green-50 transition ease-out">
+            <div class="h-64 bg-gray-200"></div>
+            <div class="p-5 flex">
+              <div>
+                <p class="font-bold">
+                  React Native Starter
+                </p>
+                <p class="text-gray-600 text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing.
+                </p>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="font-semibold px-3 rounded-full bg-green-300 text-green-900">
+                  $99
+                </div>
+                <div class="py-2 text-xs">
+                  <i class="icofont-download text-gray-500"></i>
+                  12
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </template>
+    </ul>
+  </div>
+</div>
+<div @click="showSidebar = !showSidebar" class="h-16 w-16 bg-black rounded-full fixed bottom-0 right-0 m-6 lg:hidden flex items-center justify-center">
+  <i :class="showSidebar ? 'icofont-close' : 'icofont-filter'" class="text-white text-2xl"></i>
+</div>
+<footer class="bg-green-900">
+  <div class="container mx-auto py-20 lg:py-40 px-6 text-center text-white">
+    <h1 class="font-bold text-3xl lg:text-5xl mb-5">
+      Save time, code less. <br>
+      Get a head start on your next project, today!
+    </h1>
+    <p class="text-sm mb-3">
+      Our mission at Snaplogic is to help web developers and entrepreneurs launch their own apps with minimum effort and cost, but with maximum speed.
+      Download our premium or free app templates to make your own app today! Highly customizable, our app templates, coded in Swift, Kotlin and React Native, will jump start your mobile app development and will help you launch your app 10x faster.
+    </p>
+    <p class="text-sm">
+      We offer a 30-day money-back guarantee, no questions asked.
+    </p>
+  </div>
+</footer>
+<footer>
+  <div class="container mx-auto p-6 lg:px-0 flex flex-col items-center">
+    <ul class="flex flex-col lg:flex-row items-center mb-5">
+      <li class="lg:mx-5 mb-3 lg:mb-0">
+        <a href="#">
+          About Us
+        </a>
+      </li>
+      <li class="lg:mx-5 mb-3 lg:mb-0">
+        <a href="mailto:rayehizoba@gmail.com">
+          Contact Us
+        </a>
+      </li>
+      <li class="lg:mx-5 mb-3 lg:mb-0">
+        <a href="#">
+          Refunds
+        </a>
+      </li>
+      <li class="lg:mx-5 mb-3 lg:mb-0">
+        <a href="mailto:rayehizoba@gmail.com">
+          Custom Development / Hire Us
+        </a>
+      </li>
+      <li class="lg:mx-5 mb-3 lg:mb-0">
+        <a href="#">
+          License Terms
+        </a>
+      </li>
+    </ul>
+    <p class="text-xs text-gray-500 font-normal leading-relaxed text-gray-400 text-center">
+      Snaplogic is a Trademark of Raymond Ehizoba. Copyright © 2021.
+    </p>
+  </div>
+</footer>
+</body>
+</html>
